@@ -56,7 +56,7 @@ class Renderer {
 
     // ctx:          canvas context
     drawSlide2(ctx) {
-        this.drawBezierCurve({x: 200, y: 300}, {x: 300, y: 600}, {x: 600, y: 500}, {x: 600, y: 200}, [255, 0, 0, 255], ctx);
+        this.drawBezierCurve({x: 200, y: 300}, {x: 300, y: 500}, {x: 600, y: 500}, {x: 600, y: 200}, [255, 0, 0, 255], ctx);    
     }
 
     // ctx:          canvas context
@@ -68,7 +68,7 @@ class Renderer {
         this.drawRectangle({x: 200, y: 200}, {x: 200, y: 400}, color, ctx);
         //I
         this.drawRectangle({x: 250, y: 200}, {x: 250, y: 380}, color, ctx);
-        this.drawCircle({x: 250, y: 390}, 20, color, ctx);
+        this.drawCircle({x: 250, y: 400}, 10, color, ctx);
 
         //E
         this.drawRectangle({x: 300, y: 200}, {x: 300, y: 400}, color, ctx);
@@ -79,7 +79,7 @@ class Renderer {
         //U
         this.drawRectangle({x: 450, y: 230}, {x: 450, y: 400}, color, ctx);
         this.drawRectangle({x: 550, y: 230}, {x: 550, y: 400}, color, ctx);
-        this.drawBezierCurve({x: 450, y: 230}, {x: 480, y: 200}, {x: 550, y: 200}, {x: 550, y: 230}, color, ctx);
+        this.drawBezierCurve({x: 450, y: 230}, {x: 450, y: 180}, {x: 550, y: 180}, {x: 550, y: 230}, color, ctx);
     }
 
     // left_bottom:  object ({x: __, y: __})
@@ -138,6 +138,7 @@ class Renderer {
         this.drawShape(points, color, ctx, true);
         if(this.show_points) {
             this.drawVertices(points, color, ctx, true);
+            this.drawVertices([pt1, pt2], [0,0,255,255], ctx, true);
         }
     }
 
@@ -175,8 +176,8 @@ class Renderer {
     }
 
     drawSmallRect(point, color, ctx) {
-        var left_bottom = {x: point.x - 10, y: point.y - 10};
-        var right_top = {x: point.x + 10, y: point.y + 10};
+        var left_bottom = {x: point.x - 5, y: point.y - 5};
+        var right_top = {x: point.x + 5, y: point.y + 5};
         var left_top =  {x: left_bottom.x, y: right_top.y};
         var right_bottom = {x: right_top.x, y: left_bottom.y};
         var points = [left_bottom, left_top, right_top, right_bottom];
